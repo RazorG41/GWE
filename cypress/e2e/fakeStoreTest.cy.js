@@ -30,7 +30,7 @@ describe('FakeSkleptest ', () => {
         cy.log("Should add to cart Windsurfing trip ")
         productsPage.tripsOffers.buttons.checkCartButton()
             .should('not.exist')
-        productsPage.tripsOffers.clickAddToCArtButton();
+        productsPage.tripsOffers.clickAddToCartButton();
         productsPage.tripsOffers.buttons.checkCartButton()
             .should('be.visible')
         productsPage.tripsOffers.typeSearchProduct(TEST_DATA.searchedProduct);

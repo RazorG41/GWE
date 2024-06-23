@@ -13,7 +13,7 @@ export class TripsOffers {
         .click()
         .type(text)
     }
-    clickAddToCArtButton() {
+    clickAddToCartButton() {
         this.buttons.addToCartButton()
             .click()
     }
