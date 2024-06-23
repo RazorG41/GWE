@@ -12,7 +12,7 @@ const productsPage = {
 
 
 describe('FakeSkleptest ', () => {
-    beforeEach(() => {
+    before(() => {
         cy.visit('https://fakestore.testelka.pl/')
     });
     
@@ -25,7 +25,12 @@ describe('FakeSkleptest ', () => {
             .should('be.visible');
         mainPage.tabs.clickCategories();
         cy.log("Should add to cart Windsurfing trip ")
-        productsPage.tripsOffers.clickAddToCArtButton('Windsurfing w Lanzarote');
+        productsPage.tripsOffers.buttons.checkCartButton()
+            .should('not.exist')
+        productsPage.tripsOffers.clickAddToCArtButton();
+        productsPage.tripsOffers.buttons.checkCartButton()
+            .should('be.visible')
+        productsPage.tripsOffers.clickCheckCartButton();
 
        
         
