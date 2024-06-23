@@ -1,22 +1,25 @@
 /// <reference types="cypress" />
 
-import { MainShopPage } from '../pages/MainPage';
-import { TripsOffers } from '../pages/ProductsPage';
+import { MainShopPage } from '../pages/mainPage';
+import { TripsOffers } from '../pages/productsPage';
 
 const mainPage = {
     tabs: new MainShopPage()
 };
 const productsPage = {
     tripsOffers: new TripsOffers()
-}
+};
 
+const TEST_DATA = {
+    searchedProduct: 'Soon'
+};
 
 describe('FakeSkleptest ', () => {
+
     before(() => {
         cy.visit('https://fakestore.testelka.pl/')
     });
     
-
     it('Go to store tab', () => {
         cy.log("Should move to Windsurfing category") 
         mainPage.tabs.clickTab();
@@ -30,14 +33,8 @@ describe('FakeSkleptest ', () => {
         productsPage.tripsOffers.clickAddToCArtButton();
         productsPage.tripsOffers.buttons.checkCartButton()
             .should('be.visible')
+        productsPage.tripsOffers.typeSearchProduct(TEST_DATA.searchedProduct);
         productsPage.tripsOffers.clickCheckCartButton();
 
-       
-        
-        
-
-
-        
     });
 });
-
