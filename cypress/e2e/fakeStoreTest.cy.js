@@ -35,6 +35,5 @@ describe('FakeSkleptest ', () => {
             .should('be.visible')
         productsPage.tripsOffers.typeSearchProduct(TEST_DATA.searchedProduct);
         productsPage.tripsOffers.clickCheckCartButton();
-
     });
 });
